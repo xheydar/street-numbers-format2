@@ -1,3 +1,5 @@
+import platform
+
 from config import config
 from datasets import datasets
 from transform import transform
@@ -5,7 +7,10 @@ from batch_generator import batch_generator
 import model
 from trainer import trainer
 
-dataroot = '/Users/heydar/Work/void/data/datasets/street_numbers/format2'
+if platform.system() == "Darwin" :
+    dataroot = '/Users/heydar/Work/void/data/datasets/street_numbers/format2'
+else :
+    dataroot = '/ssd/'
 
 class train_module( trainer ) :
     def __init__( self, dataroot, tag ):
@@ -37,3 +42,12 @@ class train_module( trainer ) :
 
 def get_module():
     return train_module(dataroot, '20220608')
+
+
+if __name__=="__main__" :
+    m = train_module(dataroot, '20220608')
+    m.load_dataset()
+    m.build_batches()
+    m.load_model()
+    m.train()
+
