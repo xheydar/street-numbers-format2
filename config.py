@@ -9,9 +9,10 @@ class config :
         cfg.templates = edict()
         cfg.templates.mat = '%s/mat/%s_32x32.mat' % ( dataroot, '%s' )
         cfg.templates.pkl = '%s/pkl/%s_32x32.pkl' % ( dataroot, '%s' )
-        cfg.templates.hdf5 = '%s/hdf/%s_32x32.hdf5' % ( dataroot, '%s' )
+        cfg.templates.files = '%s/files/%s/imlist.pkl' % ( dataroot, '%s' )
 
-        cfg.type = 'dataset_pkl'
+        #cfg.type = 'dataset_pkl'
+        cfg.type = 'dataset_files'
 
         return cfg
 

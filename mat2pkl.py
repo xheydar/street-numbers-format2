@@ -11,7 +11,7 @@ dataroot = '/Users/heydar/Work/void/data/datasets/street_numbers/format2'
         dataroot -
             - mat : Original Matlab mat files
             - pkl : Converted pickle files
-            - hdf5 : Converted HDF5 files to avoid loading the images into the memory
+            - files : Raw files
 
 """
 

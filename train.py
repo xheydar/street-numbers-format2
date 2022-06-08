@@ -56,7 +56,7 @@ class train_module( trainer ) :
     def dev_test( self ):
         inputs, targets = self._batch_gen[10]
         outputs = self._model['network'](inputs)
-        #loss = self._model['loss'](outputs, targets)
+        loss = self._model['loss'](outputs, targets)
 
         print( outputs.argmax(dim=1) )
         print( targets.argmax(dim=1) )
