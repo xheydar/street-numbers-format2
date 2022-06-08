@@ -29,6 +29,10 @@ class eval_module :
 
     # Creating the batches, adding augmentations and preparing the data for training
     def build_batches( self ):
+
+        # We will not pass the augmentation module to the transform during evaluation
+
+
         t = transform( self._cfg )
         self._batch_gen = batch_generator( self._cfg, self._dataset, transform=t )
 
@@ -75,17 +79,12 @@ class eval_module :
         actual = np.concatenate( actual )
         pred = np.concatenate( pred )
 
-        print( actual.shape )
-        print( pred.shape )
-
         n_correct = len(np.where( actual == pred )[0])
 
         print("Acc ", n_correct / len(actual) )
 
-
 def get_module():
     return eval_module(dataroot, '20220608')
-
 
 if __name__=="__main__" :
     m = eval_module(dataroot, '20220608')

@@ -34,6 +34,16 @@ class config :
 
         return cfg
 
+    def _augmentation_cfg( self ):
+        cfg = edict()
+
+        if self.training :
+            cfg.tokens = [['randbrightness'], ['randcontrast'], ['randgray', 0.2]]
+        else :
+            cfg.tokens = []
+
+        return cfg
+
     def _train_cfg( self ):
         cfg = edict()
 
@@ -47,9 +57,11 @@ class config :
 
         self.training = training
         self._cfg = edict()
+
         self._cfg.dataset = self._dataset_cfg( dataroot )
         self._cfg.batch_generator = self._batch_generator_cfg()
         self._cfg.transform = self._transform_cfg()
+        self._cfg.augmentation = self._augmentation_cfg()
         self._cfg.train = self._train_cfg()
 
     @property
@@ -63,6 +75,10 @@ class config :
     @property
     def transform( self ):
         return self._cfg.transform
+
+    @property
+    def augmentation( self ):
+        return self._cfg.augmentation
 
     @property
     def train( self ):

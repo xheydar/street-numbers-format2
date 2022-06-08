@@ -21,8 +21,7 @@ class trainer :
             blobs = blobs.to( self.device )
         return blobs
 
-    def train( self ):
-        
+    def train( self ): 
         nepoch = self._cfg.train.nepoch
         lr = self._cfg.train.lr
         lr_milestones = self._cfg.train.lr_milestones
@@ -32,10 +31,8 @@ class trainer :
                                momentum=0.9,
                                weight_decay=1e-4 )
 
-
         scheduler = optim.lr_scheduler.MultiStepLR( optimizer, milestones=lr_milestones, 
                                                     gamma=0.1 )
-
 
         train_loader = DataLoader( self._batch_gen, batch_size=None )
         

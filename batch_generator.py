@@ -2,7 +2,7 @@ import torch
 import numpy as np
 
 class batch_generator :
-    def __init__( self, cfg, dataset, transform=None, targets=None ):
+    def __init__( self, cfg, dataset, transform=None ):
         self._cfg = cfg
         self._dataset = dataset
         self._transform = transform

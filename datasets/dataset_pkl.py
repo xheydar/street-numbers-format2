@@ -1,4 +1,5 @@
 import pickle
+from PIL import Image
 
 class dataset_pkl :
     def __init__( self, cfg, part ):
@@ -16,7 +17,7 @@ class dataset_pkl :
         return self._ndata
 
     def __getitem__( self, idx ):
-        p = self._data[idx]
+        p = Image.fromarray(self._data[idx])
         l = self._labels[idx]
 
         return p,l
