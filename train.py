@@ -10,7 +10,7 @@ from trainer import trainer
 if platform.system() == "Darwin" :
     dataroot = '/Users/heydar/Work/void/data/datasets/street_numbers/format2'
 else :
-    dataroot = '/ssd/'
+    dataroot = '/ssd/data/datasets/street_numbers/format2'
 
 class train_module( trainer ) :
     def __init__( self, dataroot, tag ):
