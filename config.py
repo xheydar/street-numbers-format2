@@ -11,8 +11,8 @@ class config :
         cfg.templates.pkl = '%s/pkl/%s_32x32.pkl' % ( dataroot, '%s' )
         cfg.templates.files = '%s/files/%s/imlist.pkl' % ( dataroot, '%s' )
 
-        #cfg.type = 'dataset_pkl'
-        cfg.type = 'dataset_files'
+        cfg.type = 'dataset_pkl'
+        #cfg.type = 'dataset_files'
 
         return cfg
 
