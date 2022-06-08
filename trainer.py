@@ -65,5 +65,5 @@ class trainer :
             scheduler.step()
 
         print( self.model_path )
-        torch.save({'state_dict':self.model['network'].state_dict()}, self.model_path)
+        torch.save({'state_dict':self._model['network'].state_dict()}, self.model_path)
 
