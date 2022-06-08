@@ -78,7 +78,8 @@ class eval_module :
         print( actual.shape )
         print( pred.shape )
 
-        n_correct = np.where( actual == pred )[0]
+        n_correct = len(np.where( actual == pred )[0])
+
         print("Acc ", n_correct / len(actual) )
 
 
