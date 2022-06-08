@@ -61,7 +61,7 @@ class eval_module :
         for [ inputs, targets ] in tqdm( batch_gen_iter ):
 
             inputs = inputs.to( self.device )
-            outputs = outputs.to( self.device )
+            targets = targets.to( self.device )
 
             with torch.no_grad() :
                 outputs = self._model['network']( inputs )
