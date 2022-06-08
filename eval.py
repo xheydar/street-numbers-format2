@@ -72,10 +72,11 @@ class eval_module :
                 actual.append(a)
                 pred.append(p)
 
-                test = np.concatenate( actual )
-
         actual = np.concatenate( actual )
         pred = np.concatenate( pred )
+
+        print( actual.shape )
+        print( pred.shape )
 
         n_correct = np.where( actual == pred )[0]
         print("Acc ", n_correct / len(actual) )
