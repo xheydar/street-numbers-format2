@@ -1,4 +1,5 @@
 import platform
+import torch
 
 from config import config
 from datasets import datasets
@@ -34,11 +35,19 @@ class train_module( trainer ) :
         self._model['network'] = model.Net( self._cfg ).to( self.device )
         self._model['loss'] = model.Loss().to( self.device )
 
+        #model_data = torch.load( self.model_path, map_location='cpu' )
+        #self._model['network'].load_state_dict( model_data["state_dict"], strict=True )
+
     # Development test function to easily test every is working
     def dev_test( self ):
         inputs, targets = self._batch_gen[10]
         outputs = self._model['network'](inputs)
-        loss = self._model['loss'](outputs, targets)
+        #loss = self._model['loss'](outputs, targets)
+
+        print( outputs.argmax(dim=1) )
+        print( targets.argmax(dim=1) )
+
+        print( loss )
 
 def get_module():
     return train_module(dataroot, '20220608')
